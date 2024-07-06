@@ -8,3 +8,23 @@ miImage.onclick = function () {
     }
     
 };
+
+let miBotón = document.querySelector("button");
+let miTítulo = document.querySelector("h1");
+
+function estableceNombreUsuario() {
+    let miNombre = prompt("Por favor, ingresa tu nombre.");
+
+    localStorage.setItem("nombre", miNombre);
+        miTítulo.textContent = "Mozilla es genial, " + miNombre;
+}
+
+if (!localStorage.getItem("nombre")) {
+    estableceNombreUsuario();
+} else {
+    let nombreAlmacenado = localStorage.getItem("nombre");
+    miTítulo.textContent = "Mozilla es genial, " + nombreAlmacenado;
+}
+
+miBotón.onclick = function () { estableceNombreUsuario();
+};
